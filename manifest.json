@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "bishu.minimalist-worldclock",
+  "name": "World Clock (Minimalist Map)",
+  "version": "1.0.0",
+  "author": "bishu",
+  "license": "MIT",
+  "description": "A flat, minimalist world map wallpaper with major city dots whose local time updates automatically every second.",
+  "kinds": ["service"],
+  "entryPoints": {
+    "service": "Service.qml"
+  }
+}
