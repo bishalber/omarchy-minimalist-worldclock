@@ -17,12 +17,15 @@ Item {
     { name: "Sao Paulo",   tz: "America/Sao_Paulo",    lat: -23.5505, lon: -46.6333 },
     { name: "London",      tz: "Europe/London",        lat: 51.5074, lon: -0.1278 },
     { name: "Paris",       tz: "Europe/Paris",         lat: 48.8566, lon: 2.3522 },
+    { name: "Madrid",      tz: "Europe/Madrid",        lat: 40.4168, lon: -3.7038 },
+    { name: "Helsinki",    tz: "Europe/Helsinki",      lat: 60.1699, lon: 24.9384 },
     { name: "Cairo",       tz: "Africa/Cairo",         lat: 30.0444, lon: 31.2357 },
     { name: "Johannesburg",tz: "Africa/Johannesburg",  lat: -26.2041, lon: 28.0473 },
     { name: "Moscow",      tz: "Europe/Moscow",        lat: 55.7558, lon: 37.6173 },
     { name: "Dubai",       tz: "Asia/Dubai",           lat: 25.2048, lon: 55.2708 },
     { name: "New Delhi",   tz: "Asia/Kolkata",         lat: 28.6139, lon: 77.2090 },
     { name: "Singapore",   tz: "Asia/Singapore",       lat: 1.3521, lon: 103.8198 },
+    { name: "Hong Kong",   tz: "Asia/Hong_Kong",       lat: 22.3193, lon: 114.1694 },
     { name: "Beijing",     tz: "Asia/Shanghai",        lat: 39.9042, lon: 116.4074 },
     { name: "Tokyo",       tz: "Asia/Tokyo",           lat: 35.6762, lon: 139.6503 },
     { name: "Sydney",      tz: "Australia/Sydney",     lat: -33.8688, lon: 151.2093 }
@@ -139,8 +142,11 @@ Item {
           required property var modelData
           required property int index
 
-          readonly property real px: mapImage.x + (modelData.lon + 180) / 360 * mapImage.paintedWidth
-          readonly property real py: mapImage.y + (90 - modelData.lat) / 180 * mapImage.paintedHeight
+          readonly property real mapOffsetX: mapImage.x + (mapImage.width - mapImage.paintedWidth) / 2
+          readonly property real mapOffsetY: mapImage.y + (mapImage.height - mapImage.paintedHeight) / 2
+
+          readonly property real px: mapOffsetX + (modelData.lon + 180) / 360 * mapImage.paintedWidth
+          readonly property real py: mapOffsetY + (90 - modelData.lat) / 180 * mapImage.paintedHeight
 
           x: px
           y: py
